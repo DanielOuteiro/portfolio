@@ -15,23 +15,26 @@ import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";
 
 
-const video = document.createElement("video");
-video.src = "./3DModels/design system_img0.mp4"; // Replace with the actual path to your video
-video.loop = true;
-video.muted = true; // Mute the video if needed
-video.play();
 
+let video; // Declare the video variable outside the conditional block
 
-const videoTexture = new THREE.VideoTexture(video);
-videoTexture.minFilter = THREE.LinearFilter;
-videoTexture.magFilter = THREE.LinearFilter;
+if (typeof document !== 'undefined') {
+  video = document.createElement("video");
+  video.src = "./3DModels/design system_img0.mp4";
+  video.loop = true;
+  video.muted = true;
+  video.play();
+}
 
-// Rotate the video texture by 180 degrees (upside down)
-videoTexture.rotation = Math.PI; // 180 degrees in radians
+const videoTexture = video ? new THREE.VideoTexture(video) : null; // Check if video is defined before creating videoTexture
 
-// Optionally, you can also flip the video horizontally if needed
-videoTexture.center.set(0.5, 0.5); // Center the texture
-videoTexture.repeat.set(-1, 1); // Flip horizontally
+if (videoTexture) {
+  videoTexture.minFilter = THREE.LinearFilter;
+  videoTexture.magFilter = THREE.LinearFilter;
+  videoTexture.rotation = Math.PI;
+  videoTexture.center.set(0.5, 0.5);
+  videoTexture.repeat.set(-1, 1);
+}
 
 const transitions = {
   from: { rotation: [0, -Math.PI / 10, 0], scale: [0.01, 0.01, 0.01] },
@@ -85,7 +88,6 @@ function Model({ model, videoTexture, fileName, ...props }) {
 
   useEffect(() => {
     if (model && model.scene) {
-      // Traverse through the model's scene and assign the video texture only to "accessibility.gltf"
       model.scene.traverse((child) => {
         if (child.isMesh && child.material.name === "screen.001" && fileName === "motion design.gltf") {
           child.material.map = videoTexture;
@@ -183,7 +185,7 @@ function Models({ shownIndex, models }) {
           model={_models[idxesInScenes[i]]}
           camRef={camRef}
           videoTexture={videoTexture}
-          fileName={models[idxesInScenes[i]].split('/').pop()} // Extract the file name
+          fileName={models[idxesInScenes[i]].split('/').pop()}
           {...props}
         />
       ))}

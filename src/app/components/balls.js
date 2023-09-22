@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef } from "react";
+import { useRef, useEffect } from "react"; 
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
@@ -25,22 +25,25 @@ THREE.ColorManagement.legacyMode = true;
 const baubleMaterials = [];
 
 // Load textures
-const textureLoader = new THREE.TextureLoader();
-for (let i = 1; i <= 17; i++) {
-  const texture = textureLoader.load(`/balltextures/texture${i}.jpg`);
-  const roughness = 0.1; // Adjust this value to control roughness
-  const metalness = 0.00001; // Adjust this value to control metalness
-  const emissiveColor = new THREE.Color(0x000000); // Adjust emissive color if needed
+const textureLoader = typeof window !== 'undefined' ? new THREE.TextureLoader() : null;
 
-  baubleMaterials.push(
-    new THREE.MeshStandardMaterial({
-      map: texture,
-      roughness: roughness,
-      metalness: metalness,
-      emissive: emissiveColor,
-      emissiveIntensity: 0.1, // Adjust emissive intensity if needed
-    })
-  );
+if (textureLoader) {
+  for (let i = 1; i <= 17; i++) {
+    const texture = textureLoader.load(`/balltextures/texture${i}.jpg`);
+    const roughness = 0.1; // Adjust this value to control roughness
+    const metalness = 0.00001; // Adjust this value to control metalness
+    const emissiveColor = new THREE.Color(0x000000); // Adjust emissive color if needed
+
+    baubleMaterials.push(
+      new THREE.MeshStandardMaterial({
+        map: texture,
+        roughness: roughness,
+        metalness: metalness,
+        emissive: emissiveColor,
+        emissiveIntensity: 0.1, // Adjust emissive intensity if needed
+      })
+    );
+  }
 }
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
