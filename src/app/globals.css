@@ -16,6 +16,13 @@
   }
 }
 
+@font-face {
+  font-family: 'Aeonik-Regular';
+  src: url('./fonts/Aeonik-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -25,3 +32,41 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.container {
+  position: relative;
+  z-index: 10;
+  font-weight: 600;
+  font-size: 2em;
+  width: 90vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+}
+
+.container > span {
+  cursor: pointer;
+  margin-right: 0.1em;
+}
+
+.item {
+  opacity: 0.2;
+  font-family: 'Aeonik-Regular', sans-serif;
+}
+
+/*
+span.active,
+.item:hover {
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.14em;
+  text-decoration: underline;
+}
+ */ 
