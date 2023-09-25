@@ -1,7 +1,12 @@
-import * as THREE from 'three'
-import { Fragment, Suspense, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Text, Environment } from '@react-three/drei'
+import * as THREE from "three";
+import { Fragment, Suspense, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Text, Environment, useProgress, Html } from "@react-three/drei";
+
+function Loader() {
+  const { active, progress, errors, item, loaded, total } = useProgress();
+  return <Html center>{Math.round(progress)} % loaded</Html>;
+}
 
 function Sphere(props) {
   return (
@@ -9,41 +14,41 @@ function Sphere(props) {
       <sphereGeometry args={[1, 64, 64]} />
       <meshStandardMaterial color="white" roughness={1} />
     </mesh>
-  )
+  );
 }
 
 function Zoom({ vec = new THREE.Vector3(0, 0, 100) }) {
   return useFrame((state) => {
-    state.camera.position.lerp(vec.set(state.mouse.x * 10, 0, 100), 0.075)
-    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 22, 0.075)
-    state.camera.updateProjectionMatrix()
-  })
+    state.camera.position.lerp(vec.set(state.mouse.x * 10, 0, 100), 0.075);
+    state.camera.fov = THREE.MathUtils.lerp(state.camera.fov, 22, 0.075);
+    state.camera.updateProjectionMatrix();
+  });
 }
 
 function Spheres() {
-  const group = useRef()
+  const group = useRef();
   useFrame((state) => {
     group.current.children[0].position.x = THREE.MathUtils.lerp(
       group.current.children[0].position.x,
       -18 - state.mouse.x * 3,
       0.02
-    )
+    );
     group.current.children[1].position.x = THREE.MathUtils.lerp(
       group.current.children[1].position.x,
       -10 - state.mouse.x * 10,
       0.01
-    )
+    );
     group.current.children[2].position.x = THREE.MathUtils.lerp(
       group.current.children[2].position.x,
       18 - state.mouse.x * 5,
       0.03
-    )
+    );
     group.current.children[3].position.x = THREE.MathUtils.lerp(
       group.current.children[3].position.x,
       10 - state.mouse.x * 6,
       0.04
-    )
-  })
+    );
+  });
   return (
     <group ref={group}>
       <Sphere position={[-40, 1, 10]} />
@@ -51,15 +56,15 @@ function Spheres() {
       <Sphere position={[40, 3, -4]} scale={3} />
       <Sphere position={[30, 0.75, 10]} scale={0.75} />
     </group>
-  )
+  );
 }
 
 export default function Hello() {
   return (
     <Fragment>
       <Canvas shadows camera={{ position: [0, 0, 100], fov: 22 }}>
-        <fog attach="fog" args={['#f0f0f0', 100, 150]} />
-        <color attach="background" args={['#fff']} />
+        <fog attach="fog" args={["#f0f0f0", 100, 150]} />
+        <color attach="background" args={["#fff"]} />
         <spotLight
           penumbra={1}
           angle={1}
@@ -68,7 +73,7 @@ export default function Hello() {
           intensity={8}
           shadow-mapSize={[512, 512]}
         />
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <group position={[2.5, -12, 0]}>
             <Spheres />
             <mesh
@@ -76,7 +81,8 @@ export default function Hello() {
               position={[0, 0.01, 0]}
               scale={[200, 200, 200]}
               receiveShadow
-              renderOrder={100000}>
+              renderOrder={100000}
+            >
               <planeGeometry />
               <shadowMaterial transparent color="#251005" opacity={0.25} />
             </mesh>
@@ -94,11 +100,12 @@ export default function Hello() {
             material-toneMapped={false}
             material-fog={false}
             anchorX="center"
-            anchorY="middle">
+            anchorY="middle"
+          >
             {`hello!`}
           </Text>
         </Suspense>
       </Canvas>
     </Fragment>
-  )
+  );
 }
