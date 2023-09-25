@@ -25,6 +25,26 @@ export default function History() {
   const ref = useRef();
   const [idx, setIdx] = useState(0);
 
+  // Define an array to represent the desired state sequence [0, 2, 0]
+  const stateSequence = [0, 2, 0];
+  // Keep track of the current state index
+  const [currentStateIdx, setCurrentStateIdx] = useState(0);
+
+  // Use useEffect to switch between states based on the sequence
+  useEffect(() => {
+    const nextStateIdx = (currentStateIdx + 1) % stateSequence.length;
+    if (nextStateIdx !== 0) {
+      // Transition only if the next state is not 0
+      const timer = setTimeout(() => {
+        setIdx(stateSequence[nextStateIdx]);
+        setCurrentStateIdx(nextStateIdx);
+      }, 100); // Adjust the delay as needed
+
+      // Clear the timer when the component unmounts or when the sequence is complete
+      return () => clearTimeout(timer);
+    }
+  }, [currentStateIdx]);
+
   const modelIdx = objects.indexOf(fakeObjects[idx]);
   return (
     <>
@@ -32,7 +52,8 @@ export default function History() {
         <div className="scene" style={{ width: "100vw", height: "60vh" }}>
           <SceneMobile shownIndex={modelIdx} models={models} target={ref} />
         </div>
-        <div className="containerMobile" ref={ref}>
+
+        <div className="container" ref={ref}>
           {fakeObjects.map((o, i) => (
             <Item
               key={i}
