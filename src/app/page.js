@@ -15,6 +15,7 @@ import Balls from "./components/balls";
 import Works from "./components/works";
 import Hello from "./components/hello";
 import History from "./components/history";
+import ContactForm from "./components/contactform";
 
 export default function Home() {
   return (
@@ -30,7 +31,10 @@ export default function Home() {
           </div>
           <div className="basis-1/4"></div>
         </div>
-        <div className="hidden md:block" style={{ width: "100vw", height: "80vh" }}>
+        <div
+          className="hidden md:block"
+          style={{ width: "100vw", height: "80vh" }}
+        >
           <Hello />
         </div>
         <div className="md:hidden scale-125">
@@ -63,22 +67,27 @@ export default function Home() {
         <Balls />
       </div>
       <div className="md:hidden scale-125">
-          <video autoPlay muted playsInline>
-            <source src="./videos/balls.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <video autoPlay muted playsInline>
+          <source src="./videos/balls.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       <div className="px-20 pt-44 text-6xl leading-none">
         <div className="flex flex-col">
           <div>Have an idea?</div>
           <div>
-            {" "}
             <span style={{ fontWeight: "bold" }}>Let’s chat about it</span>
           </div>
         </div>
       </div>
-      <div className="hidden md:block">
-        <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
+      <div>    <ContactForm/>
+</div>
+
+      <div className="hidden sm:block max-w-screen">
+      <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
+      </div>
+
+      <div>
       </div>
     </NextUIProvider>
   );
