@@ -24,6 +24,7 @@ const Item = ({ text, onHover, index, active }) => {
 export default function History() {
   const ref = useRef();
   const [idx, setIdx] = useState(0);
+
   const modelIdx = objects.indexOf(fakeObjects[idx]);
   return (
     <>
