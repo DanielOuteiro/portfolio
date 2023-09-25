@@ -8,15 +8,10 @@ import {
   useFBO,
   Environment,
   useProgress,
-  Html
+  Html,
 } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";
-
-function Loader() {
-  const { active, progress, errors, item, loaded, total } = useProgress();
-  return <Html center>{Math.round(progress)} % loaded</Html>;
-}
 
 let video; // Declare the video variable outside the conditional block
 
@@ -210,13 +205,11 @@ function Models({ shownIndex, models }) {
 export function Scene({ models, shownIndex = 0, target, videoTexture }) {
   return (
     <Canvas shadows gl={{ antialias: true }} eventSource={target.current}>
-      <Suspense fallback={<Loader />}>
-        <Models
-          shownIndex={shownIndex}
-          models={models}
-          videoTexture={videoTexture}
-        />
-      </Suspense>
+      <Models
+        shownIndex={shownIndex}
+        models={models}
+        videoTexture={videoTexture}
+      />
     </Canvas>
   );
 }
