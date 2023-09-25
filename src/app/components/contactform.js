@@ -62,7 +62,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="flex justify-center items-center flex-col pt-20">
+    <div className="flex justify-center items-center flex-col pt-20" style={{ minWidth: "75%" }}>
       {/* Display the animation on top */}
       {isAnimationVisible && (
         <div className="mb-4">

@@ -37,7 +37,7 @@ export default function Home() {
         >
           <Hello />
         </div>
-        <div className="md:hidden scale-125">
+        <div className="md:hidden">
           <video autoPlay loop muted playsInline>
             <source src="./videos/hello.mp4" type="video/mp4" />
           </video>
@@ -66,7 +66,7 @@ export default function Home() {
       >
         <Balls />
       </div>
-      <div className="md:hidden scale-125">
+      <div className="md:hidden">
         <video autoPlay muted playsInline>
           <source src="./videos/balls.mp4" type="video/mp4" />
         </video>
