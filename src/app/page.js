@@ -10,13 +10,11 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import Loading from "./loading";
 import { Suspense } from "react";
 
 export default function Home() {
   return (
     <NextUIProvider className="bg-white w-full text-black">
-    <Suspense fallback={<Loading />}>
       <div className="min-h-screen">
         <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
           <div className=" mr-2 md:mr-44">
@@ -60,11 +58,15 @@ export default function Home() {
         Featured Work
       </div>
       <div className="hidden md:block min-h-screen scroll-smooth">
-        <Works />
+        <Suspense fallback={null}>
+          <Works />
+        </Suspense>
       </div>
 
       <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
-        <WorksMobile />
+        <Suspense fallback={null}>
+          <WorksMobile />
+        </Suspense>
       </div>
 
       <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
@@ -95,7 +97,6 @@ export default function Home() {
       <div className="md:block hidden max-w-screen md:pb-24">
         <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
       </div>
-      </Suspense>
     </NextUIProvider>
   );
 }

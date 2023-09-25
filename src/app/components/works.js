@@ -1,9 +1,8 @@
 import * as THREE from "three";
-import { useRef, useState, Suspense } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
-import Loading from "./loading";
 
 const damp = THREE.MathUtils.damp;
 const material = new THREE.LineBasicMaterial({ color: "black" });
@@ -139,17 +138,50 @@ function Items({ w = 1.5, gap = 0.35 }) {
   );
 }
 
-export const Works = () => (
-  <Suspense fallback={<Loading />}>
-    {" "}
+export const Works = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload the _open-min.jpg images
+    const preloadImages = async () => {
+      const imagePromises = state.openUrls.map((url) => {
+        return new Promise((resolve, reject) => {
+          const image = new window.Image(); // Create a new HTML Image element
+          image.src = url;
+          image.onload = () => {
+            resolve();
+          };
+          image.onerror = (error) => {
+            reject(error);
+          };
+        });
+      });
+
+      try {
+        await Promise.all(imagePromises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error("Error preloading images:", error);
+      }
+    };
+
+    preloadImages();
+  }, []);
+
+  return (
     <Canvas
       style={{ height: "100vh" }}
       gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
       onPointerMissed={() => (state.clicked = null)}
     >
-      <Items />
+      {imagesLoaded && <Items />}
     </Canvas>
-  </Suspense>
-);
+  );
+};
 
 export default Works;
+
+
+
+
+

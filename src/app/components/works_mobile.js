@@ -1,9 +1,8 @@
 import * as THREE from "three";
-import { useRef, useState, Suspense } from "react";
+import { useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
-import Loading from "./loading";
 
 const damp = THREE.MathUtils.damp;
 const material = new THREE.LineBasicMaterial({ color: "black" });
@@ -140,7 +139,6 @@ function Items({ w = 1.5, gap = 0.35 }) {
 }
 
 export const WorksMobile = () => (
-  <Suspense fallback={<Loading />}>
     <Canvas
       style={{ height: "100vh" }}
       gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
@@ -148,7 +146,6 @@ export const WorksMobile = () => (
     >
       <Items />
     </Canvas>
-  </Suspense>
 );
 
 export default WorksMobile;
