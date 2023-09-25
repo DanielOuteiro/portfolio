@@ -9,6 +9,7 @@ import {
   Environment,
   useProgress,
   Html,
+  Loader,
 } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";

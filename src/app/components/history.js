@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef, Suspense } from "react";
+import { Loader } from "@react-three/drei";
 import { Scene } from "./Scene";
 
 const objects = ["Design System", "Accessibility", "Motion Design"];
@@ -32,6 +33,7 @@ export default function History() {
         <div className="scene" style={{ width: "100vw", height: "60vh" }}>
           <Scene shownIndex={modelIdx} models={models} target={ref} />
         </div>
+
         <div className="container" ref={ref}>
           {fakeObjects.map((o, i) => (
             <Item

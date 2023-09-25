@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Suspense } from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import Spline from "@splinetool/react-spline";
 import Balls from "./components/balls";
@@ -11,7 +10,6 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import { Loader } from "@react-three/drei";
 
 export default function Home() {
   return (

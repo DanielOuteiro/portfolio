@@ -56,7 +56,6 @@ function Spheres() {
 
 export default function Hello() {
   return (
-    <Fragment>
       <Canvas shadows camera={{ position: [0, 0, 100], fov: 22 }}>
         <fog attach="fog" args={["#f0f0f0", 100, 150]} />
         <color attach="background" args={["#fff"]} />
@@ -98,6 +97,5 @@ export default function Hello() {
           {`hello!`}
         </Text>
       </Canvas>
-    </Fragment>
   );
 }

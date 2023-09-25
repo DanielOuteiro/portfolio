@@ -1,15 +1,9 @@
 import * as THREE from "three";
 import { useRef, useState, Suspense } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import {
-  Image,
-  ScrollControls,
-  Scroll,
-  useScroll,
-  useProgress,
-  Html,
-} from "@react-three/drei";
+import { Image, ScrollControls, Scroll, useScroll } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
+import Loading from "./loading";
 
 const damp = THREE.MathUtils.damp;
 const material = new THREE.LineBasicMaterial({ color: "black" });
@@ -20,7 +14,9 @@ const geometry = new THREE.BufferGeometry().setFromPoints([
 const state = proxy({
   clicked: null,
   urls: [1, 2, 3, 4, 5, 6, 7].map((u) => `/works/desktop/${u}-min.jpg`),
-  openUrls: [1, 2, 3, 4, 5, 6, 7].map((u) => `/works/desktop/${u}_open-min.jpg`),
+  openUrls: [1, 2, 3, 4, 5, 6, 7].map(
+    (u) => `/works/desktop/${u}_open-min.jpg`
+  ),
 });
 
 function Minimap() {
@@ -144,13 +140,16 @@ function Items({ w = 1.5, gap = 0.35 }) {
 }
 
 export const Works = () => (
-  <Canvas
-    style={{ height: "100vh" }}
-    gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
-    onPointerMissed={() => (state.clicked = null)}
-  >
-    <Items />
-  </Canvas>
+  <Suspense fallback={<Loading />}>
+    {" "}
+    <Canvas
+      style={{ height: "100vh" }}
+      gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
+      onPointerMissed={() => (state.clicked = null)}
+    >
+      <Items />
+    </Canvas>
+  </Suspense>
 );
 
 export default Works;
