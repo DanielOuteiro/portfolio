@@ -66,7 +66,7 @@ export default function Home() {
         <Works />
       </div>
 
-      <div className=" md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
+      <div className=" block md:hidden  -mt-16 md:mt-0 min-h-screen scroll-smooth">
         <WorksMobile />
       </div>
 
