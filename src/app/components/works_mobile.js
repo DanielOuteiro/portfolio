@@ -12,9 +12,9 @@ const geometry = new THREE.BufferGeometry().setFromPoints([
 ]);
 const state = proxy({
   clicked: null,
-  urls: [1, 2, 3, 4, 5, 6, 7].map((u) => `/works/desktop/${u}-min.jpg`),
+  urls: [1, 2, 3, 4, 5, 6, 7].map((u) => `/works/desktop/${u}-min.webp`),
   openUrls: [1, 2, 3, 4, 5, 6, 7].map(
-    (u) => `/works/mobile/${u}_open_mobile-min.jpg`
+    (u) => `/works/mobile/${u}_open_mobile-min.webp`
   ),
 });
 
