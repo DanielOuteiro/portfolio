@@ -84,3 +84,8 @@ span.active,
   padding-right: 1.5rem;
 }
 
+.loader{
+  z-index: 10;
+  min-width: 100vw;
+  min-height: 100vh;
+}

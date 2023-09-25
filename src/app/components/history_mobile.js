@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import { SceneMobile } from "./Scene_mobile";
 
 const objects = ["Design System", "Accessibility", "Motion Design"];
