@@ -3,11 +3,6 @@ import { Fragment, Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text, Environment, useProgress, Html } from "@react-three/drei";
 
-function Loader() {
-  const { active, progress, errors, item, loaded, total } = useProgress();
-  return <Html center>{Math.round(progress)} % loaded</Html>;
-}
-
 function Sphere(props) {
   return (
     <mesh castShadow {...props} renderOrder={-2000000}>
@@ -73,38 +68,35 @@ export default function Hello() {
           intensity={8}
           shadow-mapSize={[512, 512]}
         />
-        <Suspense fallback={<Loader />}>
-          <group position={[2.5, -12, 0]}>
-            <Spheres />
-            <mesh
-              rotation-x={-Math.PI / 2}
-              position={[0, 0.01, 0]}
-              scale={[200, 200, 200]}
-              receiveShadow
-              renderOrder={100000}
-            >
-              <planeGeometry />
-              <shadowMaterial transparent color="#251005" opacity={0.25} />
-            </mesh>
-          </group>
-          <hemisphereLight intensity={0.2} />
-          <ambientLight intensity={0.5} />
-          <Environment preset="warehouse" />
-          <Zoom />
-          <Text
-            position={[0, -2.5, -50]}
-            letterSpacing={-0.02}
-            font="/Ki-Medium.ttf"
-            fontSize={40}
-            color="black"
-            material-toneMapped={false}
-            material-fog={false}
-            anchorX="center"
-            anchorY="middle"
+        <group position={[2.5, -12, 0]}>
+          <Spheres />
+          <mesh
+            rotation-x={-Math.PI / 2}
+            position={[0, 0.01, 0]}
+            scale={[200, 200, 200]}
+            receiveShadow
+            renderOrder={100000}
           >
-            {`hello!`}
-          </Text>
-        </Suspense>
+            <planeGeometry />
+            <shadowMaterial transparent color="#251005" opacity={0.25} />
+          </mesh>
+        </group>
+        <hemisphereLight intensity={0.2} />
+        <ambientLight intensity={0.5} />
+        <Environment preset="warehouse" />
+        <Zoom />
+        <Text
+          position={[0, -2.5, -50]}
+          letterSpacing={-0.02}
+          fontSize={40}
+          color="black"
+          material-toneMapped={false}
+          material-fog={false}
+          anchorX="center"
+          anchorY="middle"
+        >
+          {`hello!`}
+        </Text>
       </Canvas>
     </Fragment>
   );
