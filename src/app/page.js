@@ -10,7 +10,6 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -58,15 +57,11 @@ export default function Home() {
         Featured Work
       </div>
       <div className="hidden md:block min-h-screen scroll-smooth">
-        <Suspense fallback={null}>
           <Works />
-        </Suspense>
-      </div>
+=      </div>
 
       <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
-        <Suspense fallback={null}>
           <WorksMobile />
-        </Suspense>
       </div>
 
       <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
