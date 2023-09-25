@@ -10,12 +10,10 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import { Loader } from "@react-three/drei";
-import { Fragment } from "react";
+
 
 export default function Home() {
   return (
-    <Fragment>
       <NextUIProvider className="bg-white w-full text-black">
         <div className="min-h-screen">
           <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
@@ -96,7 +94,5 @@ export default function Home() {
           <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
         </div>
       </NextUIProvider>
-      <Loader className="loader"/>
-    </Fragment>
   );
 }
