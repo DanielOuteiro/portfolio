@@ -66,7 +66,7 @@ export default function Home() {
         <Works />
       </div>
 
-      <div className=" md:hidden min-h-screen scroll-smooth">
+      <div className=" md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
         <WorksMobile />
       </div>
 
@@ -93,12 +93,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
-        {" "}
-        <ContactForm />
+      <div className="px-8 pb-44">
+        <ContactForm/>
       </div>
 
-      <div className="md:hidden block max-w-screen">
+      <div className="md:block hidden max-w-screen">
         <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
       </div>
 
