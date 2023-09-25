@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { useRef, useState, useEffect, useMemo } from "react";
+import { useRef, useState, useEffect, useMemo, Suspense } from "react";
 import { Canvas, useFrame, createPortal, useThree } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -7,18 +7,20 @@ import {
   useGLTF,
   useFBO,
   Environment,
-  EffectComposer,
-  Bloom,
-  DepthOfField,
+  useProgress,
+  Html
 } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";
 
-
+function Loader() {
+  const { active, progress, errors, item, loaded, total } = useProgress();
+  return <Html center>{Math.round(progress)} % loaded</Html>;
+}
 
 let video; // Declare the video variable outside the conditional block
 
-if (typeof document !== 'undefined') {
+if (typeof document !== "undefined") {
   video = document.createElement("video");
   video.src = "./3DModels/design system_img0.mp4";
   video.loop = true;
@@ -89,7 +91,11 @@ function Model({ model, videoTexture, fileName, ...props }) {
   useEffect(() => {
     if (model && model.scene) {
       model.scene.traverse((child) => {
-        if (child.isMesh && child.material.name === "screen.001" && fileName === "motion design.gltf") {
+        if (
+          child.isMesh &&
+          child.material.name === "screen.001" &&
+          fileName === "motion design.gltf"
+        ) {
           child.material.map = videoTexture;
           child.material.needsUpdate = true;
         }
@@ -100,7 +106,13 @@ function Model({ model, videoTexture, fileName, ...props }) {
   return (
     <group ref={ref}>
       <ambientLight intensity={3.5} color={"#fff"} />
-      <directionalLight ref={ref} intensity={1} position={[-1, 0, 50]} shadow-radius={5} castShadow></directionalLight>
+      <directionalLight
+        ref={ref}
+        intensity={1}
+        position={[-1, 0, 50]}
+        shadow-radius={5}
+        castShadow
+      ></directionalLight>
       <directionalLight position={[0, 5, -4]} intensity={6} />
       <Environment preset="studio" />
       <a.group {...props} dispose={null}>
@@ -112,14 +124,16 @@ function Model({ model, videoTexture, fileName, ...props }) {
   );
 }
 
-
 function RenderScene({ target, model, camRef, videoTexture, ...props }) {
   const scene = useMemo(() => new THREE.Scene(), []);
   useFrame((state) => {
     state.gl.setRenderTarget(target);
     state.gl.render(scene, camRef.current);
   }, 0);
-  return createPortal(<Model model={model} videoTexture={videoTexture} {...props} />, scene);
+  return createPortal(
+    <Model model={model} videoTexture={videoTexture} {...props} />,
+    scene
+  );
 }
 
 function Models({ shownIndex, models }) {
@@ -185,7 +199,7 @@ function Models({ shownIndex, models }) {
           model={_models[idxesInScenes[i]]}
           camRef={camRef}
           videoTexture={videoTexture}
-          fileName={models[idxesInScenes[i]].split('/').pop()}
+          fileName={models[idxesInScenes[i]].split("/").pop()}
           {...props}
         />
       ))}
@@ -196,7 +210,13 @@ function Models({ shownIndex, models }) {
 export function Scene({ models, shownIndex = 0, target, videoTexture }) {
   return (
     <Canvas shadows gl={{ antialias: true }} eventSource={target.current}>
-      <Models shownIndex={shownIndex} models={models} videoTexture={videoTexture} />
+      <Suspense fallback={<Loader />}>
+        <Models
+          shownIndex={shownIndex}
+          models={models}
+          videoTexture={videoTexture}
+        />
+      </Suspense>
     </Canvas>
   );
 }

@@ -1,12 +1,13 @@
 import * as THREE from "three";
-import { useRef, useState, Fragment} from "react";
+import { useRef, useState, Suspense} from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Image,
   ScrollControls,
   Scroll,
   useScroll,
-  Loader,
+  useProgress,
+  Html
 } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
 
@@ -23,6 +24,11 @@ const state = proxy({
     (u) => `/works/mobile/${u}_open_mobile.jpg`
   ),
 });
+
+function Loader() {
+  const { active, progress, errors, item, loaded, total } = useProgress();
+  return <Html center>{Math.round(progress)} % loaded</Html>;
+}
 
 function Minimap() {
   const ref = useRef();
@@ -145,16 +151,18 @@ function Items({ w = 1.5, gap = 0.35 }) {
 }
 
 export const WorksMobile = () => (
-  <Fragment>
     <Canvas
       style={{ height: "100vh" }}
       gl={{ antialias: true, toneMapping: THREE.NoToneMapping }}
       onPointerMissed={() => (state.clicked = null)}
     >
+            <Suspense fallback={<Loader />}>
+
       <Items />
+      </Suspense>
+
     </Canvas>
-    <Loader />
-  </Fragment>
+
 );
 
 export default WorksMobile;

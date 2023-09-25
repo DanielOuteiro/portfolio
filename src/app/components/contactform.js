@@ -25,18 +25,20 @@ function ContactForm() {
 
     try {
       // Make a POST request to the Formspree endpoint
-      const response = await fetch('https://formspree.io/f/xwkdrjke', {
-        method: 'POST',
+      const response = await fetch("https://formspree.io/f/xwkdrjke", {
+        method: "POST",
         body: JSON.stringify(formData),
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       });
 
       if (response.ok) {
         // If the email is sent successfully, show the success message and animation
         setIsAnimationVisible(true);
-        setSuccessMessage("Thanks for reaching out! I will get back to you as soon as possible.");
+        setSuccessMessage(
+          "Thanks for reaching out! I will get back to you as soon as possible."
+        );
 
         // Reset the form fields
         setFormData({
@@ -52,24 +54,27 @@ function ContactForm() {
         }, 500000);
       } else {
         // Handle the case where sending the email failed
-        setErrorMessage("Oops! Something went wrong, please try submitting your message again.");
+        setErrorMessage(
+          "Oops! Something went wrong, please try submitting your message again."
+        );
       }
     } catch (error) {
       // Handle any network or other errors here
-      console.error('An error occurred:', error);
-      setErrorMessage("Oops! Something went wrong, please try submitting your message again.");
+      console.error("An error occurred:", error);
+      setErrorMessage(
+        "Oops! Something went wrong, please try submitting your message again."
+      );
     }
   };
 
   return (
-    <div className="flex justify-center items-center flex-col pt-20">
+    <div className="px-20 lg:mx-48 pt-16">
       {/* Display the animation on top */}
       {isAnimationVisible && (
-        <div className="mb-4">
+        <div className="mb-2">
           <iframe
             style={{ border: "none", width: "350px", height: "350px" }}
             src="https://rive.app/s/D6VZao6wok2LZqzVqKrTDQ/embed"
-            allowFullScreen
           ></iframe>
         </div>
       )}
@@ -80,7 +85,7 @@ function ContactForm() {
       {/* Hide the form if the animation is visible */}
       {!isAnimationVisible && !successMessage && (
         <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="flex gap-4">
+          <div className="flex-col" >
             <div>
               <Input
                 type="text"
@@ -89,10 +94,10 @@ function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 labelPlacement="inside"
-                placeholder="Your name *"
+                placeholder="Your name"
               />
             </div>
-            <div>
+            <div className="pt-4">
               <Input
                 type="email"
                 id="email"
@@ -112,10 +117,9 @@ function ContactForm() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              fullWidth="true"
             />
           </div>
-          <div className="pt-4">
+          <div className="pt-8">
             <Button variant="flat" color="default" radius="full" type="submit">
               Send
             </Button>

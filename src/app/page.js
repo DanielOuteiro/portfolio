@@ -1,14 +1,6 @@
 "use client";
 
 import * as React from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-} from "@nextui-org/react";
 import { NextUIProvider } from "@nextui-org/react";
 import Spline from "@splinetool/react-spline";
 import Balls from "./components/balls";
@@ -54,7 +46,7 @@ export default function Home() {
         <History />
       </div>
 
-      <div className=" py-5" style={{}}>
+      <div className="md:hidden py-5" style={{}}>
         {" "}
         <HistoryMobile />
       </div>
@@ -62,12 +54,12 @@ export default function Home() {
       <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
         Featured Work
       </div>
-      <div className=" hidden md:block min-h-screen scroll-smooth">
+      <div className="hidden md:block min-h-screen scroll-smooth">
         <Works />
       </div>
 
-      <div className=" block md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
-        <WorksMobile />
+      <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
+        <WorksMobile/>
       </div>
 
       <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
@@ -93,11 +85,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="px-8 pb-44 md:pb-0">
+      <div className="pb-44 md:pb-0">
         <ContactForm/>
       </div>
 
-      <div className="md:block hidden max-w-screen">
+      <div className="md:block hidden max-w-screen md:pb-44">
         <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
       </div>
 
