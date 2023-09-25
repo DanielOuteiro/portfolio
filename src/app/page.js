@@ -66,7 +66,7 @@ export default function Home() {
         <Works />
       </div>
 
-      <div className=" block md:hidden  -mt-16 md:mt-0 min-h-screen scroll-smooth">
+      <div className=" block md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
         <WorksMobile />
       </div>
 
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="px-8 pb-44">
+      <div className="px-8 pb-44 md:pb-0">
         <ContactForm/>
       </div>
 
