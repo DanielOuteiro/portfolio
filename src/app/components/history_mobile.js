@@ -53,7 +53,7 @@ export default function History() {
           <SceneMobile shownIndex={modelIdx} models={models} target={ref} />
         </div>
 
-        <div className="container" ref={ref}>
+        <div className="containerMobile" ref={ref}>
           {fakeObjects.map((o, i) => (
             <Item
               key={i}
