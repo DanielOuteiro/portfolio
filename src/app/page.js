@@ -10,12 +10,21 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
+import Thatscreen from "./components/loadme/thatscreen"
+
 
 
 export default function Home() {
+  const [loading, setLoading] = React.useState(true)
 
+  React.useEffect(() => {
+    setTimeout(() => setLoading(false), 6000)
+  }, [])
 
   return (
+    <>
+    {!loading ? (
+      <React.Fragment>
       <NextUIProvider className="bg-white w-full text-black">
         <div className="min-h-screen">
           <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
@@ -96,5 +105,10 @@ export default function Home() {
           <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
         </div>
       </NextUIProvider>
+      </React.Fragment>
+      ) : (
+        <Thatscreen />
+      )}
+    </>
   );
 }
