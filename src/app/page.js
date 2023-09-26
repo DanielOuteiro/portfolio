@@ -10,31 +10,13 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import Loading from "./loading";
-import { useEffect, useState } from "react";
+
 
 export default function Home() {
 
 
-  const [loadingVisible, setLoadingVisible] = useState(true);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingVisible(false);
-    }, 6000);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
-
   return (
       <NextUIProvider className="bg-white w-full text-black">
-      {loadingVisible ? (
-        <div className="fixed inset-0 flex justify-center items-center bg-white z-50">
-          <Loading />
-        </div>
-      ) : null}
         <div className="min-h-screen">
           <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
             <div className=" mr-2 md:mr-44">
@@ -78,7 +60,7 @@ export default function Home() {
           Featured Work
         </div>
         <div className="hidden md:block min-h-screen scroll-smooth">
-          <Works />={" "}
+          <Works />
         </div>
 
         <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
