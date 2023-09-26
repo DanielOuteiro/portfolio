@@ -18,7 +18,7 @@ export default function Home() {
   const [loading, setLoading] = React.useState(true)
 
   React.useEffect(() => {
-    setTimeout(() => setLoading(false), 6000)
+    setTimeout(() => setLoading(false), 8000)
   }, [])
 
   return (

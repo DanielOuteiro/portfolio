@@ -33,6 +33,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-image-preloader": "^1.0.2",
+    "react-powerglitch": "^1.0.0",
     "react-spinners": "^0.13.8",
     "styled-components": "^6.0.8",
     "tailwind-scrollbar-hide": "^1.1.7",
