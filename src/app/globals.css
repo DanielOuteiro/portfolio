@@ -83,3 +83,13 @@ span.active,
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+.buttondisabled {
+visibility: hidden;
+}
+
+
+.buttonenabled{
+  background-color: black;
+  color: white;
+}
