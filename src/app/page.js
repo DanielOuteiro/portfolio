@@ -22,9 +22,9 @@ export default function Home() {
 
   return (
     <>
-      {!loading ? (
-        <React.Fragment>
-          <PlausibleProvider domain="danieloitei.ro">
+      <PlausibleProvider domain="danieloitei.ro">
+        {!loading ? (
+          <React.Fragment>
             <NextUIProvider className="bg-white w-full text-black">
               <div className="min-h-screen">
                 <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
@@ -109,11 +109,11 @@ export default function Home() {
                 <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
               </div>
             </NextUIProvider>
-          </PlausibleProvider>
-        </React.Fragment>
-      ) : (
-        <Thatscreen />
-      )}
+          </React.Fragment>
+        ) : (
+          <Thatscreen />
+        )}
+      </PlausibleProvider>
     </>
   );
 }
