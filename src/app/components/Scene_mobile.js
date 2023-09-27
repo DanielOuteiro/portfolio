@@ -6,9 +6,7 @@ import {
   ScreenQuad,
   useGLTF,
   useFBO,
-  Environment,
-  useProgress,
-  Html,
+  Environment
 } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";
@@ -17,7 +15,7 @@ let video; // Declare the video variable outside the conditional block
 
 if (typeof document !== "undefined") {
   video = document.createElement("video");
-  video.src = "./3DModels/design system_img0.mp4";
+  video.src = "./3DModels/motion design_img0.mp4";
   video.loop = true;
   video.muted = true;
   video.play();
