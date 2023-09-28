@@ -53,7 +53,7 @@ body {
 }
 
 .container > span {
-  cursor: pointer;
+  cursor: none;
   margin-right: 0.1em;
 }
 

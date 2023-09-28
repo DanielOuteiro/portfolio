@@ -1,6 +1,8 @@
 import "./globals.css";
 import localFont from "next/font/local";
 
+
+
 const myFont = localFont({
   src: [
     {
@@ -30,6 +32,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={myFont.className}>{children}</body>
-    </html>
+   </html>
   );
 }

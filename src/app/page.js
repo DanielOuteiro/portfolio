@@ -10,8 +10,11 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import Thatscreen from "./components/loadme/thatscreen";
+import Thatscreen from "./components/thatscreen";
+
 import PlausibleProvider from "next-plausible";
+import AnimatedCursor from "react-animated-cursor"
+
 
 export default function Home() {
   const [loading, setLoading] = React.useState(true);
@@ -105,14 +108,37 @@ export default function Home() {
               <div className="pb-44 md:pb-0">
                 <ContactForm />
               </div>
-              <div className="md:block hidden max-w-screen md:pb-24">
+              <div className="md:block hidden max-w-screen md:pb-0">
                 <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
               </div>
             </NextUIProvider>
           </React.Fragment>
         ) : (
+          <div className="bg-white w-screen h-screen">
           <Thatscreen />
+          </div>
         )}
+              <AnimatedCursor
+      innerSize={8}
+      outerSize={8}
+      color='0, 0, 0'
+      outerAlpha={0.2}
+      innerScale={0.7}
+      outerScale={5}
+      clickables={[
+        'a',
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="submit"]',
+        'input[type="image"]',
+        'label[for]',
+        'select',
+        'textarea',
+        'button',
+        '.link'
+      ]}
+    /> 
       </PlausibleProvider>
     </>
   );
