@@ -33,11 +33,13 @@ function Thatscreen() {
         left: "50%",
         top: "50%",
         transform: "translate(-50%, -50%)",
+        textAlign: "center", // Center-align content horizontally
+        width: "100px", // Fixed width for the container
       }}
       className="bg-white text-black text-6xl"
     >
       <h1 ref={glitch.ref}>{counter}</h1>
-      <p className="text-sm">loading ... </p>
+      <p className="text-sm">loading ...</p>
     </div>
   );
 }
