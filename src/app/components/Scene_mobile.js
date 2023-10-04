@@ -31,6 +31,51 @@ if (videoTexture) {
   videoTexture.repeat.set(-1, 1);
 }
 
+let talksVideo;
+if (typeof document !== "undefined") {
+  talksVideo = document.createElement("video");
+  talksVideo.src = "./3DModels/talks_img0.mp4";
+  talksVideo.loop = true;
+  talksVideo.muted = true;
+  talksVideo.play();
+}
+
+const talksVideoTexture = talksVideo ? new THREE.VideoTexture(talksVideo) : null;
+
+if (talksVideoTexture) {
+  talksVideoTexture.minFilter = THREE.LinearFilter;
+  talksVideoTexture.magFilter = THREE.LinearFilter;
+  talksVideoTexture.rotation = Math.PI;
+  talksVideoTexture.center.set(0.5, 0.5);
+  talksVideoTexture.repeat.set(-1, 1);
+}
+
+
+let conversationalDesignVideo;
+if (typeof document !== "undefined") {
+  conversationalDesignVideo = document.createElement("video");
+  conversationalDesignVideo.src = "./3DModels/conversational design_img0.mp4";
+  conversationalDesignVideo.loop = true;
+  conversationalDesignVideo.muted = true;
+  conversationalDesignVideo.play();
+}
+
+// Create the conversationalDesignTexture using THREE.VideoTexture
+const conversationalDesignTexture = conversationalDesignVideo
+  ? new THREE.VideoTexture(conversationalDesignVideo)
+  : null;
+
+// Check if conversationalDesignTexture is defined and configure its properties
+if (conversationalDesignTexture) {
+  conversationalDesignTexture.minFilter = THREE.LinearFilter;
+  conversationalDesignTexture.magFilter = THREE.LinearFilter;
+  conversationalDesignTexture.rotation = Math.PI;
+  conversationalDesignTexture.center.set(0.5, 0.5);
+  conversationalDesignTexture.repeat.set(-1, 1);
+}
+
+
+
 const transitions = {
   from: { rotation: [0, -Math.PI / 10, 0], scale: [0.01, 0.01, 0.01] },
   enter: {
@@ -87,14 +132,24 @@ function Model({ model, videoTexture, fileName, ...props }) {
         if (
           child.isMesh &&
           child.material.name === "screen.001" &&
+          fileName === "talks.gltf"
+        ) {
+          child.material.map = talksVideoTexture; // Assign talksVideoTexture to talks.gltf
+          child.material.needsUpdate = true;
+        } else if (
+          child.isMesh &&
+          child.material.name === "screen.001" &&
           fileName === "motion design.gltf"
         ) {
-          child.material.map = videoTexture;
+          child.material.map = videoTexture; // Assign videoTexture to motion design.gltf
           child.material.needsUpdate = true;
         }
       });
     }
-  }, [model, videoTexture, fileName]);
+  }, [model, videoTexture, talksVideoTexture, fileName]);
+  
+
+  
 
   return (
     <group ref={ref}>

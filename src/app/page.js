@@ -11,16 +11,16 @@ import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
 import Thatscreen from "./components/thatscreen";
+import { Card, CardBody, Divider } from "@nextui-org/react";
 
 import PlausibleProvider from "next-plausible";
-import AnimatedCursor from "react-animated-cursor"
-
+import AnimatedCursor from "react-animated-cursor";
 
 export default function Home() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setTimeout(() => setLoading(false), 8000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (
@@ -105,40 +105,53 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="pb-44 md:pb-0">
+              <div className="md:pb-0">
                 <ContactForm />
               </div>
               <div className="md:block hidden max-w-screen md:pb-0">
                 <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
               </div>
+              <div className="px-20 pt-44 text-4xl md:text-sm leading-none">
+                <Card shadow="none">
+                  <CardBody>
+                    <p className="text-large"> Concept, design and code by Daniel Oiteiro.</p>
+                  </CardBody>
+                  <Divider />
+                  <CardBody>
+                    <p className=" text-default-400 text-sm">
+                      Certain 3D models are referenced from Spline Community and React Three Fiber examples.
+                    </p>
+                  </CardBody>
+                </Card>
+              </div>
             </NextUIProvider>
           </React.Fragment>
         ) : (
           <div className="bg-white w-screen h-screen">
-          <Thatscreen />
+            <Thatscreen />
           </div>
         )}
-              <AnimatedCursor
-      innerSize={8}
-      outerSize={8}
-      color='0, 0, 0'
-      outerAlpha={0.2}
-      innerScale={0.7}
-      outerScale={5}
-      clickables={[
-        'a',
-        'input[type="text"]',
-        'input[type="email"]',
-        'input[type="number"]',
-        'input[type="submit"]',
-        'input[type="image"]',
-        'label[for]',
-        'select',
-        'textarea',
-        'button',
-        '.link'
-      ]}
-    /> 
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={8}
+          color="0, 0, 0"
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
+          clickables={[
+            "a",
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            "label[for]",
+            "select",
+            "textarea",
+            "button",
+            ".link",
+          ]}
+        />
       </PlausibleProvider>
     </>
   );

@@ -152,7 +152,7 @@ export const Balls = () => (
       anchorY="middle"
       maxWidth={30}
     >
-      {`Figma . Spline . Webflow . NextJS . Lottie . Maze . Retool . Rive . After Effects . Tableau . Jira . Blender . Cinema4D . Python . Unreal Engine . Framer . Flutterflow . R3F `}
+      {`Figma . Spline . Webflow . NextJS . Lottie . Maze . Retool . Rive . After Effects . Storybook . Jira . Blender . Cinema4D . Python . Unreal Engine . Framer . Flutterflow . R3F . Tableau `}
     </Text>
 
     <Physics gravity={[0, 0, 0]}>

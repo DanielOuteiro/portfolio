@@ -6,12 +6,12 @@ import {
   ScreenQuad,
   useGLTF,
   useFBO,
-  Environment
+  Environment,
 } from "@react-three/drei";
 import { a, useSprings } from "@react-spring/three";
 import { CrossFadeMaterial } from "./XFadeMaterial";
 
-let video; // Declare the video variable outside the conditional block
+let video; 
 
 if (typeof document !== "undefined") {
   video = document.createElement("video");
@@ -21,7 +21,7 @@ if (typeof document !== "undefined") {
   video.play();
 }
 
-const videoTexture = video ? new THREE.VideoTexture(video) : null; // Check if video is defined before creating videoTexture
+const videoTexture = video ? new THREE.VideoTexture(video) : null; 
 
 if (videoTexture) {
   videoTexture.minFilter = THREE.LinearFilter;
@@ -29,6 +29,48 @@ if (videoTexture) {
   videoTexture.rotation = Math.PI;
   videoTexture.center.set(0.5, 0.5);
   videoTexture.repeat.set(-1, 1);
+}
+
+let talksVideo;
+if (typeof document !== "undefined") {
+  talksVideo = document.createElement("video");
+  talksVideo.src = "./3DModels/talks_img0.mp4";
+  talksVideo.loop = true;
+  talksVideo.muted = true;
+  talksVideo.play();
+}
+
+const talksVideoTexture = talksVideo
+  ? new THREE.VideoTexture(talksVideo)
+  : null;
+
+if (talksVideoTexture) {
+  talksVideoTexture.minFilter = THREE.LinearFilter;
+  talksVideoTexture.magFilter = THREE.LinearFilter;
+  talksVideoTexture.rotation = Math.PI;
+  talksVideoTexture.center.set(0.5, 0.5);
+  talksVideoTexture.repeat.set(-1, 1);
+}
+
+let codingVideo;
+if (typeof document !== "undefined") {
+  codingVideo = document.createElement("video");
+  codingVideo.src = "./3DModels/coding_img0.mp4";
+  codingVideo.loop = true;
+  codingVideo.muted = true;
+  codingVideo.play();
+}
+
+const codingVideoTexture = codingVideo
+  ? new THREE.VideoTexture(codingVideo)
+  : null;
+
+if (codingVideoTexture) {
+  codingVideoTexture.minFilter = THREE.LinearFilter;
+  codingVideoTexture.magFilter = THREE.LinearFilter;
+  codingVideoTexture.rotation = Math.PI;
+  codingVideoTexture.center.set(0.5, 0.5);
+  codingVideoTexture.repeat.set(-1, 1);
 }
 
 const transitions = {
@@ -87,14 +129,29 @@ function Model({ model, videoTexture, fileName, ...props }) {
         if (
           child.isMesh &&
           child.material.name === "screen.001" &&
+          fileName === "talks.gltf"
+        ) {
+          child.material.map = talksVideoTexture; // Assign talksVideoTexture to talks.gltf
+          child.material.needsUpdate = true;
+        } else if (
+          child.isMesh &&
+          child.material.name === "screen.001" &&
           fileName === "motion design.gltf"
         ) {
-          child.material.map = videoTexture;
+          child.material.map = videoTexture; // Assign videoTexture to motion design.gltf
+          child.material.needsUpdate = true;
+        } else if (
+          child.isMesh &&
+          child.material.name === "screen.001" &&
+          fileName === "coding.gltf"
+        ) {
+          child.material.map = codingVideoTexture; // Assign codingVideoTexture to coding.gltf
           child.material.needsUpdate = true;
         }
       });
     }
-  }, [model, videoTexture, fileName]);
+  }, [model, videoTexture, talksVideoTexture, codingVideoTexture, fileName]);
+  
 
   return (
     <group ref={ref}>
