@@ -111,14 +111,14 @@ export default function Home() {
               <div className="md:block hidden max-w-screen md:pb-0">
                 <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
               </div>
-              <div className="px-20 text-4xl md:text-sm leading-none">
+              <div className="px-20 text-4xl md:text-sm pt-64 md:pt-0 leading-none">
                 <Card shadow="none">
                   <CardBody>
                     <p className="text-large"> Concept, design and code by Daniel Oiteiro.</p>
                   </CardBody>
                   <Divider />
                   <CardBody>
-                    <p className=" text-default-400 text-sm">
+                    <p className="text-default-400 text-sm">
                       Certain 3D models are referenced from Spline Community and React Three Fiber examples.
                     </p>
                   </CardBody>
