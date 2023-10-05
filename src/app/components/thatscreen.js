@@ -41,7 +41,7 @@ function Thatscreen() {
         </p>
       </div>
       <div className="loading">
-        <h1 ref={glitch.ref}>Loading</h1>
+        <h1>Loading</h1>
       </div>
       <div className="counter">
         <p>{formattedCounter}</p>

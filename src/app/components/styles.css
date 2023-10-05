@@ -220,24 +220,29 @@ body {
   }
 
 
-  .loading{
-    color: white;
-    font-size: 110px;
-    font-family: "Aeonik";
-    position: absolute;
-    top: 41%;
-    left: 38%;
-    z-index: 20;
+  .loading,
+  .counter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
   }
-
-  .counter{
-    color: rgba(255, 255, 255, 0.1);
-    font-size: 200px;
-    position: absolute;
-    font-family: "Aeonik";
-    width: var(--size);
-    height: var(--size);
-    top: 35%;
-    left: 43.2%;
-    z-index: 20;
+  
+  .loading {
+      color: white;
+      font-size: 110px;
+      font-family: "Aeonik";
+      z-index: 20;
+      margin-top: -15px; /* Half of the font-size */
   }
+  
+  .counter {
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 200px;
+      font-family: "Aeonik";
+      z-index: 20;
+      margin-top: -5px; /* Half of the font-size */
+  }
+  
