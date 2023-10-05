@@ -20,7 +20,7 @@ export default function Home() {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
+    setTimeout(() => setLoading(false), 8000);
   }, []);
 
   return (
@@ -111,7 +111,7 @@ export default function Home() {
               <div className="md:block hidden max-w-screen md:pb-0">
                 <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
               </div>
-              <div className="px-20 pt-44 text-4xl md:text-sm leading-none">
+              <div className="px-20 text-4xl md:text-sm leading-none">
                 <Card shadow="none">
                   <CardBody>
                     <p className="text-large"> Concept, design and code by Daniel Oiteiro.</p>

@@ -73,6 +73,28 @@ if (codingVideoTexture) {
   codingVideoTexture.repeat.set(-1, 1);
 }
 
+let conversationalVideo;
+if (typeof document !== "undefined") {
+  conversationalVideo = document.createElement("video");
+  conversationalVideo.src = "./3DModels/conversational design_img0.mp4";
+  conversationalVideo.loop = true;
+  conversationalVideo.muted = true;
+  conversationalVideo.play();
+}
+
+const conversationalVideoTexture = conversationalVideo
+  ? new THREE.VideoTexture(conversationalVideo)
+  : null;
+
+if (conversationalVideoTexture) {
+  conversationalVideoTexture.minFilter = THREE.LinearFilter;
+  conversationalVideoTexture.magFilter = THREE.LinearFilter;
+  conversationalVideoTexture.rotation = Math.PI;
+  conversationalVideoTexture.center.set(0.5, 0.5);
+  conversationalVideoTexture.repeat.set(-1, 1);
+}
+
+
 const transitions = {
   from: { rotation: [0, -Math.PI / 10, 0], scale: [0.01, 0.01, 0.01] },
   enter: {
@@ -147,10 +169,16 @@ function Model({ model, videoTexture, fileName, ...props }) {
         ) {
           child.material.map = codingVideoTexture; // Assign codingVideoTexture to coding.gltf
           child.material.needsUpdate = true;
-        }
-      });
+        } else if (
+          child.isMesh &&
+          child.material.name === "screen.001" &&
+          fileName === "conversational design.gltf"
+        ) {
+          child.material.map = conversationalVideoTexture; // Assign conversationalVideoTexture to conversational design.gltf
+          child.material.needsUpdate = true;
+    }});
     }
-  }, [model, videoTexture, talksVideoTexture, codingVideoTexture, fileName]);
+  }, [model, videoTexture, talksVideoTexture, codingVideoTexture, conversationalVideoTexture, fileName]);
   
 
   return (
