@@ -38,6 +38,7 @@
     "react-image-preloader": "^1.0.2",
     "react-powerglitch": "^1.0.0",
     "react-spinners": "^0.13.8",
+    "react-spring": "^9.7.3",
     "react-use-measure": "^2.1.1",
     "styled-components": "^6.0.8",
     "tailwind-scrollbar-hide": "^1.1.7",
