@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import Spline from "@splinetool/react-spline";
 import Balls from "./components/balls";
@@ -17,9 +18,9 @@ import PlausibleProvider from "next-plausible";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function Home() {
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => setLoading(false), 8000);
   }, []);
 
@@ -55,19 +56,6 @@ export default function Home() {
                     <source src="./videos/hello.mp4" type="video/mp4" />
                   </video>
                 </div>
-              </div>
-              <div className="px-20 text-4xl md:text-6xl leading-none">
-                10+ Years of UX Expertise
-              </div>
-
-              <div className="hidden md:block py-5" style={{}}>
-                {" "}
-                <History />
-              </div>
-
-              <div className="md:hidden py-5" style={{}}>
-                {" "}
-                <HistoryMobile />
               </div>
 
               <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
@@ -114,12 +102,16 @@ export default function Home() {
               <div className="px-20 text-4xl md:text-sm pt-64 md:pt-0 leading-none">
                 <Card shadow="none">
                   <CardBody>
-                    <p className="text-large"> Concept, design and code by Daniel Oiteiro.</p>
+                    <p className="text-large">
+                      {" "}
+                      Concept, design and code by Daniel Oiteiro.
+                    </p>
                   </CardBody>
                   <Divider />
                   <CardBody>
                     <p className="text-default-300 text-sm">
-                      Certain 3D models are referenced from Spline Community and React Three Fiber examples.
+                      Certain 3D models are referenced from Spline Community and
+                      React Three Fiber examples.
                     </p>
                   </CardBody>
                 </Card>

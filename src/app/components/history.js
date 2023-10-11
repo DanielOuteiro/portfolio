@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useMemo, useRef, Suspense } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
+import { useGLTF } from '@react-three/drei'
+
 import { Scene } from "./Scene";
 
 const objects = ["Design System", "Smart Devices", "Motion Design",  "Talks",  "Spatial Design",  "Coding", "Conversational Design"  ];
@@ -68,3 +70,13 @@ export default function History() {
     </>
   );
 }
+
+
+useGLTF.preload('./3DModels/talks.gltf')
+useGLTF.preload('./3DModels/design system.gltf')
+useGLTF.preload('./3DModels/coding.gltf')
+useGLTF.preload('./3DModels/conversational design.gltf')
+useGLTF.preload('./3DModels/motion design.gltf')
+useGLTF.preload('./3DModels/smart devices.gltf')
+useGLTF.preload('./3DModels/spatial design.gltf')
+

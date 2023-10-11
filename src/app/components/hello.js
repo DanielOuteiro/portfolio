@@ -1,7 +1,7 @@
 import * as THREE from "three";
-import { Fragment, Suspense, useRef } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Text, Environment, useProgress, Html } from "@react-three/drei";
+import { Text, Environment } from "@react-three/drei";
 
 function Sphere(props) {
   return (
