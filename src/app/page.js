@@ -8,8 +8,6 @@ import Balls from "./components/balls";
 import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
-import History from "./components/history";
-import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
 import Thatscreen from "./components/thatscreen";
 import { Card, CardBody, Divider } from "@nextui-org/react";
