@@ -9,7 +9,6 @@ import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
 import ContactForm from "./components/contactform";
-import Thatscreen from "./components/thatscreen";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 
 import PlausibleProvider from "next-plausible";
@@ -25,7 +24,6 @@ export default function Home() {
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
-        {!loading ? (
           <React.Fragment>
             <NextUIProvider className="bg-white w-full text-black">
               <div className="min-h-screen">
@@ -116,11 +114,6 @@ export default function Home() {
               </div>
             </NextUIProvider>
           </React.Fragment>
-        ) : (
-          <div className="bg-white w-screen h-screen">
-            <Thatscreen />
-          </div>
-        )}
         <AnimatedCursor
           innerSize={8}
           outerSize={8}
