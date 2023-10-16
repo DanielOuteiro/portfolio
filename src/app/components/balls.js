@@ -1,10 +1,19 @@
 import * as THREE from "three";
-import { useRef } from "react"; 
+import { useRef, useEffect } from "react"; 
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
   Text,
+  ContactShadows,
+  SoftShadows,
 } from "@react-three/drei";
+import {
+  EffectComposer,
+  N8AO,
+  Bloom,
+  SMAA,
+  DepthOfField,
+} from "@react-three/postprocessing";
 import {
   BallCollider,
   Physics,
@@ -12,7 +21,7 @@ import {
   CylinderCollider,
 } from "@react-three/rapier";
 
-THREE.ColorManagement.enabled = false;
+THREE.ColorManagement.legacyMode = true;
 const baubleMaterials = [];
 
 // Load textures
