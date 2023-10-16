@@ -118,7 +118,7 @@ export default function Home() {
                   </CardBody>
                   <Divider />
                   <CardBody>
-                    <p className="text-default-300 text-sm">
+                    <p className="text-sm text-default-600">
                       Certain 3D models are referenced from Spline Community and React Three Fiber examples.
                     </p>
                   </CardBody>
