@@ -37,7 +37,7 @@ export default function Home() {
                         I am Daniel Oiteiro
                       </span>{" "}
                       and I thrive in crafting seamless experiences that delight
-                      users and drive business growth.
+                      users and drive business growth..
                     </span>
                   </div>
                   <div className="basis-1/4"></div>
