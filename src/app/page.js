@@ -27,13 +27,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Preload CSS file */}
-      <Script src="../../public/3DModels" strategy="beforeInteractive" onLoad={() => console.log('3D loaded')}/>
-      <Script src="./components/hello" strategy="beforeInteractive" onLoad={() => console.log('hello loaded')} />
-      <Script src="../../public/works/desktop" strategy="beforeInteractive" onLoad={() => console.log('works loaded')} />
-
       <PlausibleProvider domain="danieloitei.ro">
-        {!loading ? (
           <NextUIProvider className="bg-white w-full text-black">
             <div className="min-h-screen">
               <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
@@ -135,11 +129,6 @@ export default function Home() {
               </Card>
             </div>
           </NextUIProvider>
-        ) : (
-          <div className="bg-white w-screen h-screen">
-            <Thatscreen />
-          </div>
-        )}
         <AnimatedCursor
           innerSize={8}
           outerSize={8}
