@@ -4,7 +4,7 @@ import { SceneMobile } from "./Scene_mobile";
 const objects = ["Design System", "Motion Design",  "Talks",  "Coding", "Conversational Design"  ];
 const models = objects.map((k) => "./3DModels/" + k.toLowerCase() + ".gltf");
 const fakeObjects =
-"Design System. Storytelling. Talks. EU Normative A11Y. Conversational Design. Cross-Platform. Motion Design. Interaction Design. Coding. UX Consultancy".split(
+"Design System. Storytelling. Talks. EU-Normative A11Y. Conversational Design. Cross-Platform. Motion Design. Interaction Design. Coding. UX Consultancy".split(
   ". "
   );
 
