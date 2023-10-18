@@ -26,7 +26,7 @@ export default function History() {
   const [idx, setIdx] = useState(0);
 
   // Define an array to represent the desired state sequence [0, 2, 0]
-  const stateSequence = [0, 12, 0];
+  const stateSequence = [0, 2, 0];
   // Keep track of the current state index
   const [currentStateIdx, setCurrentStateIdx] = useState(0);
 
