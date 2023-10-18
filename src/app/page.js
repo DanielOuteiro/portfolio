@@ -33,14 +33,15 @@ export default function Home() {
               <div className="basis-1/4"></div>
             </div>
 
-            <div
+                  {/* <div
               className="hidden md:block"
               style={{ width: "100vw", height: "80vh" }}
             >
               <Hello />
-            </div>
+            </div> */}
 
-            <div className="md:hidden py-36">
+
+            <div className="py-36">
               <video autoPlay loop muted playsInline>
                 <source src="./videos/hello.mp4" type="video/mp4" />
               </video>
