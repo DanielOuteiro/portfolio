@@ -22,7 +22,7 @@ const textureLoader = typeof window !== 'undefined' ? new THREE.TextureLoader() 
 
 if (textureLoader) {
   for (let i = 1; i <= 17; i++) {
-    const texture = textureLoader.load(`/balltextures/texture${i}.jpg`);
+    const texture = textureLoader.load(`/balltextures/texture${i}.png`);
     const roughness = 0.1; // Adjust this value to control roughness
     const metalness = 0.00001; // Adjust this value to control metalness
     const emissiveColor = new THREE.Color(0x000000); // Adjust emissive color if needed
