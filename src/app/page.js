@@ -8,6 +8,7 @@ import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
 import ContactForm from "./components/contactform";
+import History from "./components/history"
 import { Card, CardBody, Divider } from "@nextui-org/react";
 
 
@@ -48,6 +49,13 @@ export default function Home() {
               </div>
             </div>
             <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
+10+ years of UX expertise            </div>
+            <div
+                className="hidden md:block"
+                style={{ width: "100vw", height: "80vh" }}
+              >
+                <History />
+              </div>            <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
               Featured Work
             </div>
             <div className="hidden md:block min-h-screen scroll-smooth">
