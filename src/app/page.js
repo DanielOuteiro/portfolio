@@ -63,17 +63,6 @@ export default function Home() {
               <HistoryMobile />
             </div>
 
-            <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
-              Featured Work
-            </div>
-            <div className="hidden md:block min-h-screen scroll-smooth">
-              <Works />
-            </div>
-
-            <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
-              <WorksMobile />
-            </div>
-
             <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
               Fusing tools and ideas
             </div>
