@@ -130,7 +130,6 @@ export default function Home() {
             </div>
           </NextUIProvider>
         <AnimatedCursor
-          className="md:hidden block"
           innerSize={8}
           outerSize={8}
           color="0, 0, 0"
