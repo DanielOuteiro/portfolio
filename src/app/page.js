@@ -7,8 +7,6 @@ import Balls from "./components/balls";
 import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
-import History from "./components/history";
-import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 
@@ -49,18 +47,15 @@ export default function Home() {
                 </video>
               </div>
             </div>
-            <div className="px-20 text-4xl md:text-6xl leading-none">
-              10+ Years of UX Expertise
+            <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
+              Featured Work
+            </div>
+            <div className="hidden md:block min-h-screen scroll-smooth">
+              <Works />
             </div>
 
-            <div className="hidden md:block py-5" style={{}}>
-              {" "}
-              <History />
-            </div>
-
-            <div className="md:hidden py-5" style={{}}>
-              {" "}
-              <HistoryMobile />
+            <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
+              <WorksMobile />
             </div>
 
             <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
