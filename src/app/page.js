@@ -12,6 +12,8 @@ import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
 import Thatscreen from "./components/thatscreen";
 import { Card, CardBody, Divider } from "@nextui-org/react";
+import Script from 'next/script';
+
 
 import PlausibleProvider from "next-plausible";
 import AnimatedCursor from "react-animated-cursor";
@@ -25,107 +27,114 @@ export default function Home() {
 
   return (
     <>
+      {/* Preload CSS file */}
+      <Script src="../../public/3DModels" strategy="beforeInteractive" onLoad={() => console.log('3D loaded')}/>
+      <Script src="./components/hello" strategy="beforeInteractive" onLoad={() => console.log('hello loaded')} />
+      <Script src="../../public/works/desktop" strategy="beforeInteractive" onLoad={() => console.log('works loaded')} />
+
       <PlausibleProvider domain="danieloitei.ro">
         {!loading ? (
-          <React.Fragment>
-            <NextUIProvider className="bg-white w-full text-black">
-              <div className="min-h-screen">
-                <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
-                  <div className=" mr-2 md:mr-44">
-                    <span className=" text-xl  md:text-3xl max-w-5xl lg:max-w-4xl leading-tight">
-                      <span style={{ fontWeight: "bold" }}>
-                        I am Daniel Oiteiro
-                      </span>{" "}
-                      and I thrive in crafting seamless experiences that delight
-                      users and drive business growth..
-                    </span>
-                  </div>
-                  <div className="basis-1/4"></div>
+          <NextUIProvider className="bg-white w-full text-black">
+            <div className="min-h-screen">
+              <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
+                <div className=" mr-2 md:mr-44">
+                  <span className=" text-xl  md:text-3xl max-w-5xl lg:max-w-4xl leading-tight">
+                    <span style={{ fontWeight: "bold" }}>
+                      I am Daniel Oiteiro
+                    </span>{" "}
+                    and I thrive in crafting seamless experiences that delight
+                    users and drive business growth.
+                  </span>
                 </div>
-
-                <div
-                  className="hidden md:block"
-                  style={{ width: "100vw", height: "80vh" }}
-                >
-                  <Hello />
-                </div>
-
-                <div className="md:hidden py-36">
-                  <video autoPlay loop muted playsInline>
-                    <source src="./videos/hello.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
-              <div className="px-20 text-4xl md:text-6xl leading-none">
-                10+ Years of UX Expertise
+                <div className="basis-1/4"></div>
               </div>
 
-              <div className="hidden md:block py-5" style={{}}>
-                {" "}
-                <History />
-              </div>
-
-              <div className="md:hidden py-5" style={{}}>
-                {" "}
-                <HistoryMobile />
-              </div>
-
-              <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
-                Featured Work
-              </div>
-              <div className="hidden md:block min-h-screen scroll-smooth">
-                <Works />
-              </div>
-
-              <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
-                <WorksMobile />
-              </div>
-
-              <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
-                Fusing tools and ideas
-              </div>
               <div
                 className="hidden md:block"
-                style={{ width: "100vw", height: "100vh" }}
+                style={{ width: "100vw", height: "80vh" }}
               >
-                <Balls />
+                <Hello />
               </div>
-              <div className="md:hidden">
-                <video autoPlay muted playsInline>
-                  <source src="./videos/balls.mp4" type="video/mp4" />
+
+              <div className="md:hidden py-36">
+                <video autoPlay loop muted playsInline>
+                  <source src="./videos/hello.mp4" type="video/mp4" />
                 </video>
               </div>
-              <div className="px-20 pt-44 text-4xl md:text-6xl leading-none">
-                <div className="flex flex-col">
-                  <div>Have an idea?</div>
-                  <div>
-                    <span style={{ fontWeight: "bold" }}>
-                      Let’s chat about it
-                    </span>
-                  </div>
+            </div>
+            <div className="px-20 text-4xl md:text-6xl leading-none">
+              10+ Years of UX Expertise
+            </div>
+
+            <div className="hidden md:block py-5" style={{}}>
+              {" "}
+              <History />
+            </div>
+
+            <div className="md:hidden py-5" style={{}}>
+              {" "}
+              <HistoryMobile />
+            </div>
+
+            <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
+              Featured Work
+            </div>
+            <div className="hidden md:block min-h-screen scroll-smooth">
+              <Works />
+            </div>
+
+            <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
+              <WorksMobile />
+            </div>
+
+            <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight	">
+              Fusing tools and ideas
+            </div>
+            <div
+              className="hidden md:block"
+              style={{ width: "100vw", height: "100vh" }}
+            >
+              <Balls />
+            </div>
+            <div className="md:hidden">
+              <video autoPlay muted playsInline>
+                <source src="./videos/balls.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div className="px-20 pt-44 text-4xl md:text-6xl leading-none">
+              <div className="flex flex-col">
+                <div>Have an idea?</div>
+                <div>
+                  <span style={{ fontWeight: "bold" }}>
+                    Let’s chat about it
+                  </span>
                 </div>
               </div>
-              <div className="md:pb-0">
-                <ContactForm />
-              </div>
-              <div className="md:block hidden max-w-screen md:pb-0">
-                <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
-              </div>
-              <div className="px-20 text-4xl md:text-sm pt-64 md:pt-0 leading-none">
-                <Card shadow="none">
-                  <CardBody>
-                    <p className="text-large"> Concept, design and code by Daniel Oiteiro.</p>
-                  </CardBody>
-                  <Divider />
-                  <CardBody>
-                    <p className="text-sm text-default-600">
-                      Certain 3D models are referenced from Spline Community and React Three Fiber examples.
-                    </p>
-                  </CardBody>
-                </Card>
-              </div>
-            </NextUIProvider>
-          </React.Fragment>
+            </div>
+            <div className="md:pb-0">
+              <ContactForm />
+            </div>
+            <div className="md:block hidden max-w-screen md:pb-0">
+              <Spline scene="https://prod.spline.design/3fIun2Ia365Y7UtH/scene.splinecode" />
+            </div>
+            <div className="px-20 text-4xl md:text-sm pt-64 md:pt-0 leading-none">
+              <Card shadow="none">
+                <CardBody>
+                  <p className="text-large">
+                    {" "}
+                    Concept, design and code by Daniel Oiteiro.
+                  </p>
+                </CardBody>
+                <Divider />
+                <CardBody>
+                  <p className="text-sm text-default-600">
+                    Certain 3D models are referenced from Spline Community and
+                    React Three Fiber examples.
+                  </p>
+                </CardBody>
+              </Card>
+            </div>
+          </NextUIProvider>
         ) : (
           <div className="bg-white w-screen h-screen">
             <Thatscreen />

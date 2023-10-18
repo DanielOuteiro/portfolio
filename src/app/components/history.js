@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo, useRef, Suspense } from "react";
 import { Scene } from "./Scene";
 
-const objects = ["Design System", "Smart Devices", "Motion Design",  "Talks",  "Spatial Design",  "Coding", "Conversational Design"  ];
+const objects = ["Design System", "Motion Design",  "Talks",  "Coding", "Conversational Design"  ];
 const models = objects.map((k) => "./3DModels/" + k.toLowerCase() + ".gltf");
 const fakeObjects =
-"Design System. Storytelling. Spatial Design. User Testing. Talks. 3D Design. Smart Devices. EU Normative A11Y. Conversational Design. Cross-Platform. Motion Design. Interaction Design. Coding. UX Consultancy".split(
+"Design System. Storytelling. Talks. EU Normative A11Y. Conversational Design. Cross-Platform. Motion Design. Interaction Design. Coding. UX Consultancy".split(
   ". "
   );
 
