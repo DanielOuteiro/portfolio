@@ -1,19 +1,12 @@
+"use client"
+
 import * as THREE from "three";
-import { useRef, useEffect } from "react"; 
+import { useRef } from "react"; 
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
   Text,
-  ContactShadows,
-  SoftShadows,
 } from "@react-three/drei";
-import {
-  EffectComposer,
-  N8AO,
-  Bloom,
-  SMAA,
-  DepthOfField,
-} from "@react-three/postprocessing";
 import {
   BallCollider,
   Physics,

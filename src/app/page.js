@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/react";
@@ -10,20 +10,13 @@ import Hello from "./components/hello";
 import History from "./components/history";
 import HistoryMobile from "./components/history_mobile";
 import ContactForm from "./components/contactform";
-import Thatscreen from "./components/thatscreen";
 import { Card, CardBody, Divider } from "@nextui-org/react";
-import Script from 'next/script';
 
 
 import PlausibleProvider from "next-plausible";
 import AnimatedCursor from "react-animated-cursor";
 
 export default function Home() {
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    setTimeout(() => setLoading(false), 8000);
-  }, []);
 
   return (
     <>

@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useMemo, useRef, Suspense } from "react";
+"use client"
+
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Scene } from "./Scene";
 
 const objects = ["Design System", "Motion Design",  "Talks",  "Coding", "Conversational Design"  ];
