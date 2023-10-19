@@ -14,43 +14,8 @@ import { Card, CardBody, Divider } from "@nextui-org/react";
 
 import PlausibleProvider from "next-plausible";
 import AnimatedCursor from "react-animated-cursor";
-import { Scene } from "three";
 
 export default function Home() {
-
-  const [animationIndex, setAnimationIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAnimationIndex((prevIndex) => (prevIndex + 1) % 14);
-    }, 3000); // Switch every 3 seconds
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []); // Empty dependency array means this effect runs once after initial render
-
-  const highlightedWords = [
-    "Design System.",
-    "Spatial Design.",
-    "Talks.",
-    "Smart Devices.",
-    "Conversational Design.",
-    "Motion Design.",
-    "Coding.",
-  ];
-
-  const regularWords = [
-    "Storytelling.",
-    "User Testing.",
-    "3D Design.",
-    "EU Normative A11Y.",
-    "Cross-Platform.",
-    "Interaction Design.",
-    "UX Consultancy.",
-  ];
-
-
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
@@ -83,8 +48,8 @@ export default function Home() {
             </div>
           </div>
           <div className="px-20 pt-44 pb-12 text-4xl md:text-6xl leading-tight">
-              10+ years of UX expertise
-            </div>
+            10+ years of UX expertise
+          </div>
           <div
             style={{
               display: "flex",
@@ -93,46 +58,26 @@ export default function Home() {
               alignItems: "center",
             }}
           >
-
-<div
-  style={{
-    width: "100vw",
-    height: "50vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }}
->
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    style={{ width: "100vw", height: "60vh"}}
-  >
-    <source src="./videos/history.mp4" type="video/mp4" />
-  </video>
-</div>
-
+            <div
+              style={{
+                width: "100vw",
+                height: "50vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100vw", height: "60vh" }}
+              >
+                <source src="./videos/history_.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
-
-          <div
-        className="pb-12 px-20 text-2xl lg:px-52 lg:text-3xl"
-        style={{ fontWeight: "600", color: "rgba(0, 0, 0, 0.4)" }}
-      >
-        {highlightedWords.map((word, index) => (
-          <span
-            key={index}
-            style={{
-              animation: animationIndex === index ? "highlight 6s infinite" : "",
-            }}
-          >
-            {word}{" "}
-          </span>
-        ))}
-        {regularWords.join(" ")}
-      </div>
-
           <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
             Featured Work
           </div>

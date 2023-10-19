@@ -103,9 +103,3 @@ visibility: hidden;
   background-color: black;
   color: white;
 }
-
-
-@keyframes highlight {
-  0%, 100% { color: black; opacity: 1; }
-  33.33%, 66.66% { color: black; opacity: 0.4; }
-}
