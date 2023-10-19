@@ -50,34 +50,100 @@ export default function Home() {
           <div className="px-20 pt-44 pb-12 text-4xl md:text-6xl leading-tight">
             10+ years of UX expertise
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+
+          <div className="hidden lg:block py-20">
             <div
               style={{
-                width: "100vw",
-                height: "50vh",
                 display: "flex",
+                flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{ width: "100vw", height: "60vh" }}
+              <div
+                style={{
+                  width: "100vw",
+                  height: "50vh",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                <source src="./videos/history_.mp4" type="video/mp4" />
-              </video>
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100vw", height: "60vh" }}
+                >
+                  <source src="./videos/history_lg.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
           </div>
+
+          <div className="hidden lg:hidden md:block py-20">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  width: "100vw",
+                  height: "50vh",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100vw", height: "60vh" }}
+                >
+                  <source src="./videos/history_md.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:hidden py-20">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  width: "100vw",
+                  height: "50vh",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  style={{ width: "100vw", height: "100vh" }}
+                >
+                  <source src="./videos/history_sm.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
+
           <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
             Featured Work
           </div>
