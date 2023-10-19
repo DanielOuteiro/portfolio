@@ -74,7 +74,7 @@ export default function Home() {
                   loop
                   muted
                   playsInline
-                  style={{ width: "100vw", height: "60vh" }}
+                  style={{ width: "100vw", height: "80vh" }}
                 >
                   <source src="./videos/history_lg.mp4" type="video/mp4" />
                 </video>
