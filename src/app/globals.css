@@ -21,6 +21,16 @@
   src: url('./fonts/Aeonik-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  
+  font-family: 'Aeonik-Regular';
+  src: url('./fonts/Aeonik-Medium.woff2') format('woff2');
+  font-weight: medium;
+  font-style: normal;
+
+  font-family: 'Aeonik-Regular';
+  src: url('./fonts/Aeonik-RegularItalic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
 }
 
 body {
@@ -92,4 +102,10 @@ visibility: hidden;
 .buttonenabled{
   background-color: black;
   color: white;
+}
+
+
+@keyframes highlight {
+  0%, 100% { color: black; opacity: 1; }
+  33.33%, 66.66% { color: black; opacity: 0.4; }
 }

@@ -1,19 +1,56 @@
 "use client";
 
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { NextUIProvider } from "@nextui-org/react";
 import Spline from "@splinetool/react-spline";
 import Balls from "./components/balls";
 import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
+
 import ContactForm from "./components/contactform";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 
 import PlausibleProvider from "next-plausible";
 import AnimatedCursor from "react-animated-cursor";
+import { Scene } from "three";
 
 export default function Home() {
+
+  const [animationIndex, setAnimationIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationIndex((prevIndex) => (prevIndex + 1) % 14);
+    }, 3000); // Switch every 3 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []); // Empty dependency array means this effect runs once after initial render
+
+  const highlightedWords = [
+    "Design System.",
+    "Spatial Design.",
+    "Talks.",
+    "Smart Devices.",
+    "Conversational Design.",
+    "Motion Design.",
+    "Coding.",
+  ];
+
+  const regularWords = [
+    "Storytelling.",
+    "User Testing.",
+    "3D Design.",
+    "EU Normative A11Y.",
+    "Cross-Platform.",
+    "Interaction Design.",
+    "UX Consultancy.",
+  ];
+
+
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
@@ -45,32 +82,56 @@ export default function Home() {
               </video>
             </div>
           </div>
-
-          <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
-            10+ years of UX expertise{" "}
-          </div>
-          <div className="py-36">
-              <video autoPlay loop muted playsInline>
-                <source src="./videos/drei.mp4" type="video/mp4" />
-              </video>
+          <div className="px-20 pt-44 pb-12 text-4xl md:text-6xl leading-tight">
+              10+ years of UX expertise
             </div>
-            <div className="py-12 px-12 text-3xl lg:px-80">
-    <span style={{ color: 'black' }}>Design System. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Storytelling. </span>
-    <span style={{ color: 'black' }}>Spatial Design. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>User Testing. </span>
-    <span style={{ color: 'black' }}>Talks. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>3D Design. </span>
-    <span style={{ color: 'black' }}>Smart Devices. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>EU Normative A11Y. </span>
-    <span style={{ color: 'black' }}>Conversational Design. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Cross-Platform. </span>
-    <span style={{ color: 'black' }}>Motion Design. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Interaction Design. </span>
-    <span style={{ color: 'black' }}>Coding. </span>
-    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>UX Consultancy. </span>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+
+<div
+  style={{
+    width: "100vw",
+    height: "50vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    style={{ width: "100vw", height: "60vh"}}
+  >
+    <source src="./videos/history.mp4" type="video/mp4" />
+  </video>
 </div>
 
+          </div>
+
+          <div
+        className="pb-12 px-20 text-2xl lg:px-52 lg:text-3xl"
+        style={{ fontWeight: "600", color: "rgba(0, 0, 0, 0.4)" }}
+      >
+        {highlightedWords.map((word, index) => (
+          <span
+            key={index}
+            style={{
+              animation: animationIndex === index ? "highlight 6s infinite" : "",
+            }}
+          >
+            {word}{" "}
+          </span>
+        ))}
+        {regularWords.join(" ")}
+      </div>
 
           <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
             Featured Work
