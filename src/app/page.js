@@ -8,7 +8,6 @@ import Works from "./components/works";
 import WorksMobile from "./components/works_mobile";
 import Hello from "./components/hello";
 import ContactForm from "./components/contactform";
-import History from "./components/history";
 import { Card, CardBody, Divider } from "@nextui-org/react";
 
 import PlausibleProvider from "next-plausible";
@@ -46,19 +45,37 @@ export default function Home() {
               </video>
             </div>
           </div>
+
           <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
             10+ years of UX expertise{" "}
           </div>
-          <div
-            className=""
-            style={{ width: "100vw", height: "80vh" }}
-          >
-            <History />
-          </div>{" "}
+          <div className="py-36">
+              <video autoPlay loop muted playsInline>
+                <source src="./videos/drei.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div className="py-12 px-12 text-3xl lg:px-80">
+    <span style={{ color: 'black' }}>Design System. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Storytelling. </span>
+    <span style={{ color: 'black' }}>Spatial Design. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>User Testing. </span>
+    <span style={{ color: 'black' }}>Talks. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>3D Design. </span>
+    <span style={{ color: 'black' }}>Smart Devices. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>EU Normative A11Y. </span>
+    <span style={{ color: 'black' }}>Conversational Design. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Cross-Platform. </span>
+    <span style={{ color: 'black' }}>Motion Design. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>Interaction Design. </span>
+    <span style={{ color: 'black' }}>Coding. </span>
+    <span style={{ color: 'rgba(0, 0, 0, 0.5)' }}>UX Consultancy. </span>
+</div>
+
+
           <div className="px-20 pt-44 text-4xl md:text-6xl leading-tight">
             Featured Work
           </div>
-          <div className="hidden md:block min-h-screen scroll-smooth">
+          <div className="hidden md:block min-h-screen scroll-smooth self-center">
             <Works />
           </div>
           <div className="md:hidden -mt-16 md:mt-0 min-h-screen scroll-smooth">
