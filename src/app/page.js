@@ -51,7 +51,7 @@ export default function Home() {
             10+ years of UX expertise
           </div>
 
-          <div className="hidden lg:block py-20">
+          <div className="hidden lg:block py-20 pt-40">
             <div
               style={{
                 display: "flex",
