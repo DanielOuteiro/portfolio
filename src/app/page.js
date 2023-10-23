@@ -47,7 +47,7 @@ export default function Home() {
               </video>
             </div>
           </div>
-          <div className="px-20 pt-44 pb-12 text-4xl md:text-6xl leading-tight">
+          <div className="px-20 pb-12 text-4xl md:text-6xl leading-tight">
             10+ years of UX expertise
           </div>
 
@@ -113,7 +113,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="md:hidden py-20">
+          <div className="md:hidden py-20 pt-40">
             <div
               style={{
                 display: "flex",
