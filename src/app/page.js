@@ -11,15 +11,27 @@ import Hello from "./components/hello";
 
 import ContactForm from "./components/contactform";
 import { Card, CardBody, Divider } from "@nextui-org/react";
+import Blobity from "blobity";
 
 import PlausibleProvider from "next-plausible";
-import AnimatedCursor from "react-animated-cursor";
 
 export default function Home() {
+    const blobity = new Blobity({
+      licenseKey: "opensource",
+      color:"#00FFFF",
+      dotColor: "#000",
+      size:"200",
+      dotSize:"10",
+      radius:"20",
+      zIndex:"999"
+        });
+
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
-        <NextUIProvider className="bg-white w-full text-black">
+        <NextUIProvider
+          className="bg-white w-full text-black"
+        >
           <div className="min-h-screen">
             <div className=" px-20 py-10 w-full bg-white  flex-row  justify-between items-center inline-flex">
               <div className=" mr-2 md:mr-44">
