@@ -16,16 +16,20 @@ import Blobity from "blobity";
 import PlausibleProvider from "next-plausible";
 
 export default function Home() {
-    const blobity = new Blobity({
-      licenseKey: "opensource",
-      color:"#00FFFF",
-      dotColor: "#000",
-      size:"200",
-      dotSize:"10",
-      radius:"20",
-      zIndex:"999"
-        });
-
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const blobity = new Blobity({
+        licenseKey: "opensource",
+        color: "#00FFFF",
+        dotColor: "#000",
+        size: "200",
+        dotSize: "10",
+        radius: "20",
+        zIndex: "999"
+      });
+    }
+  }, []); 
+  
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
