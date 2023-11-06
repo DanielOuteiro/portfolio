@@ -20,16 +20,16 @@ export default function Home() {
     if (typeof window !== "undefined") {
       const blobity = new Blobity({
         licenseKey: "opensource",
-        color: "#00FFFF",
+        color: "#E5E4E2",
         dotColor: "#000",
-        size: "200",
+        opacity:"0.3",
+        size: "40",
         dotSize: "10",
-        radius: "20",
         zIndex: "999"
       });
     }
   }, []); 
-  
+
   return (
     <>
       <PlausibleProvider domain="danieloitei.ro">
