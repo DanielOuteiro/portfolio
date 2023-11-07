@@ -20,12 +20,11 @@ export default function Home() {
     if (typeof window !== "undefined") {
       const blobity = new Blobity({
         licenseKey: "opensource",
-        color: "#E5E4E2",
         dotColor: "#000",
-        opacity:"0.3",
-        size: "40",
-        dotSize: "10",
-        zIndex: "999"
+        focusableElementsOffsetX: 2,
+        focusableElementsOffsetY: 2,
+        opacity: 0.15,
+        magnetic: true,      
       });
     }
   }, []); 
