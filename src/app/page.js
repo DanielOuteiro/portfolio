@@ -204,13 +204,6 @@ export default function Home() {
                   Concept, design and code by Daniel Oiteiro.
                 </p>
               </CardBody>
-              <Divider />
-              <CardBody>
-                <p className="text-sm text-default-600">
-                  Certain 3D models are referenced from Spline Community and
-                  React Three Fiber examples.
-                </p>
-              </CardBody>
             </Card>
           </div>
         </NextUIProvider>
